@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fantôme — stylos à encre invisible</title>
+<meta name="description" content="Des stylos à encre invisible : le tracé ne se lit que sous lumière noire. À l'unité, par deux ou par cinq, avec une lampe UV offerte pour le lot de cinq.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Aperçu au partage. Remplace le chemin par une URL absolue
+     (https://tondomaine.fr/images/lampe-uv.png) le jour où tu as
+     ton nom de domaine : beaucoup de réseaux ignorent les chemins relatifs. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fantôme — stylos à encre invisible">
+<meta property="og:description" content="Des stylos à encre invisible : le tracé ne se lit que sous lumière noire. À l'unité, par deux ou par cinq, avec une lampe UV offerte pour le lot de cinq.">
+<meta property="og:image" content="images/lampe-uv.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  html{color-scheme:dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumière Noire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..500&family=Jost:wght@300;400;500&display=swap">
+
+<style>
+:root{
+  --night:#05081A;
+  --navy:#161F4E;
+  --navy-lift:#141C46;
+  --jour:#E9E5DA;
+  --jour-ink:#14161F;
+  --jour-dim:#5A5E70;
+  --bronze:#6E5420;
+  --panel:#E7EDFF;
+  --ice:#DDE5FF;
+  --ice-dim:#8C99D4;
+  --or:#C9AC70;
+  --or-clair:#E0CB98;
+  --violet:#8B6BFF;
+  --pink:#FF4FB0;
+  --ink:#0A0E24;
+
+  --f-display:"Bodoni Moda","Didot","Bodoni MT",Georgia,serif;
+  --f-ui:"Jost","Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --pad:clamp(20px,6vw,88px);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--night);
+  color:var(--ice);
+  font-family:var(--f-ui);
+  font-weight:300;
+  font-size:15.5px;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+[hidden]{display:none!important}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+
+.d{
+  font-family:var(--f-display);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-.005em;
+  text-wrap:balance;
+  margin:0;
+}
+.d-xl{font-size:clamp(40px,6.6vw,80px)}
+.d-lg{font-size:clamp(30px,4.2vw,54px)}
+.d-sm{font-family:var(--f-display);font-weight:500;font-size:clamp(20px,1.9vw,24px);line-height:1.25;margin:0}
+.glow{text-shadow:0 0 44px rgba(139,107,255,.32)}
+.eyebrow{
+  font-size:11.5px;font-weight:500;margin:0;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--or);
+}
+.body{font-weight:300;margin:0}
+.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.5;font-weight:300}
+.dim{color:var(--ice-dim)}
+
+.band{padding:clamp(52px,8vw,116px) var(--pad)}
+section[id],main[id]{scroll-margin-top:18px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.band-night{background:var(--night)}
+.band-navy{background:var(--navy)}
+.band-deep{background:#03050F}
+.band-jour{background:var(--jour);color:var(--jour-ink)}
+.band-jour .eyebrow{color:var(--bronze)}
+.band-jour .dim{color:var(--jour-dim)}
+.band-jour .step .n{color:var(--bronze)}
+.band-jour .step h3{color:var(--jour-ink)}
+.band-jour .step p{color:var(--jour-dim)}
+.band-jour .step figure{
+  background:rgba(20,22,31,.045);
+  border-color:rgba(110,84,32,.42);
+  box-shadow:inset 0 0 24px rgba(20,22,31,.05);
+}
+.band-jour .step svg{stroke:var(--jour-ink)}
+.rule{
+  padding:15px var(--pad);
+  background:var(--night);
+  border-top:1px solid rgba(201,172,112,.30);
+  border-bottom:1px solid rgba(201,172,112,.30);
+}
+
+/* ---------- nav ---------- */
+.nav{
+  background:var(--night);
+  display:flex;align-items:center;gap:clamp(14px,2.6vw,40px);
+  padding:16px var(--pad);
+  border-bottom:1px solid rgba(139,107,255,.28);
+}
+.nav .links{display:flex;gap:clamp(14px,2.4vw,38px);font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;flex-wrap:wrap}
+.nav .links a{border-bottom:1px solid transparent;padding-bottom:2px}
+.nav .links a:hover{border-bottom-color:var(--or);color:var(--or)}
+.spacer{flex:1 1 auto}
+.pill{
+  display:inline-block;
+  background:var(--or);color:#14100A;
+  font-family:var(--f-ui);font-weight:500;font-size:12px;
+  text-transform:uppercase;letter-spacing:.16em;
+  padding:14px 30px;border-radius:0;border:0;cursor:pointer;
+  transition:background-color .25s ease,color .25s ease;
+}
+.pill:hover{background:var(--or-clair)}
+@media(max-width:760px){
+  .nav{flex-wrap:wrap;gap:12px 18px;padding-bottom:12px}
+  .nav .links{
+    order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;
+    gap:20px;padding-bottom:3px;scrollbar-width:none;
+  }
+  .nav .links::-webkit-scrollbar{display:none}
+  .nav .links a{white-space:nowrap;padding-bottom:4px}
+}
+.pill-violet{background:transparent;color:var(--or);border:1px solid rgba(201,172,112,.55)}
+.pill-violet:hover{background:rgba(201,172,112,.12)}
+
+/* ---------- panneau clair pour les photos ---------- */
+.panel{
+  background:radial-gradient(58% 52% at 50% 46%,rgba(139,107,255,.26),transparent 72%);
+  padding:clamp(8px,1.6vw,22px);
+}
+.panel img{
+  width:100%;
+  filter:drop-shadow(0 0 3px rgba(226,232,248,.26)) drop-shadow(0 0 40px rgba(201,172,112,.16));
+}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 78% 40%,rgba(139,107,255,.30),transparent 62%),
+    radial-gradient(90% 70% at 10% 100%,rgba(201,172,112,.10),transparent 60%),
+    var(--night);
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(24px,4vw,64px);align-items:center;
+  padding:clamp(40px,5.5vw,80px) var(--pad) clamp(52px,7vw,96px);
+}
+.hero-copy{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.hero-copy p{max-width:34ch}
+.hero .panel{margin:0}
+@media(max-width:840px){
+  .hero{grid-template-columns:1fr}
+  .hero .panel{max-width:360px}
+}
+
+/* ---------- manifeste ---------- */
+.manifesto{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.manifesto .d{max-width:20ch}
+.manifesto .body{max-width:56ch}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.split.bleed{grid-template-columns:.82fr 1.18fr;gap:clamp(28px,6vw,88px)}
+.split.bleed > .panel{margin-left:calc(var(--pad) * -1)}
+@media(max-width:840px){.split.bleed{grid-template-columns:1fr}.split.bleed > .panel{margin-left:0}}
+@media(max-width:840px){.split{grid-template-columns:1fr}}
+.split-copy{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.split-copy p{max-width:46ch}
+figure{margin:0}
+figcaption{margin-top:10px;font-size:12.5px;font-weight:300;color:var(--ice-dim)}
+
+/* ---------- etapes ---------- */
+.steps-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(34px,4.5vw,60px)}
+.steps-head .body{max-width:52ch}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.6vw,40px)}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{display:flex;flex-direction:column;gap:12px}
+.step .n{font-size:11px;font-weight:500;letter-spacing:.2em;color:var(--or)}
+.step figure{
+  width:88px;height:88px;border-radius:50%;
+  background:rgba(139,107,255,.10);
+  border:1px solid rgba(201,172,112,.45);
+  box-shadow:inset 0 0 24px rgba(139,107,255,.14);
+  display:grid;place-items:center;
+}
+.step svg{width:52px;height:52px}
+.step h3{color:var(--ice)}
+.step p{font-size:14.5px;font-weight:300;color:var(--ice-dim)}
+
+/* ---------- lampe UV ---------- */
+.uv-wrap{display:grid;grid-template-columns:1.18fr .82fr;gap:clamp(28px,5vw,72px);align-items:center}
+@media(max-width:840px){.uv-wrap{grid-template-columns:1fr}}
+.torch{
+  position:relative;overflow:hidden;
+  aspect-ratio:5/4;
+  background:#03040E;
+  border:1px solid rgba(139,107,255,.4);
+  cursor:crosshair;touch-action:none;
+}
+.torch .paper{position:absolute;inset:0;display:grid;place-items:center;padding:8%}
+.torch svg{width:100%;height:auto;overflow:visible}
+.torch .hidden-layer{
+  -webkit-mask-image:radial-gradient(circle 116px at var(--x,62%) var(--y,44%),#000 0%,#000 42%,transparent 100%);
+          mask-image:radial-gradient(circle 116px at var(--x,62%) var(--y,44%),#000 0%,#000 42%,transparent 100%);
+}
+.torch .beam{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle 134px at var(--x,62%) var(--y,44%),rgba(139,107,255,.34),rgba(201,172,112,.08) 55%,transparent 78%);
+}
+.torch .hint{
+  position:absolute;left:14px;bottom:12px;
+  font-size:10.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);
+}
+.uv-copy{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.uv-copy p{max-width:44ch;color:var(--ice-dim)}
+.uv-shot{max-width:250px;margin-top:6px}
+.uv-shot img{box-shadow:0 0 70px rgba(107,92,255,.5)}
+
+/* ---------- la lampe ---------- */
+.lampe-tete{display:flex;flex-direction:column;gap:16px;align-items:flex-start;max-width:52ch}
+.lampe-offre{
+  display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;
+  border:1px solid rgba(201,172,112,.45);
+  padding:10px 18px;
+  font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--or);
+}
+.lampe-offre > span{white-space:nowrap}
+.lampe-offre b{font-family:var(--f-display);font-weight:400;font-size:17px;letter-spacing:.02em;text-transform:none}
+
+.lampe-grille{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(34px,6vw,90px);
+  align-items:center;
+  margin-top:clamp(32px,4.5vw,60px);
+}
+@media(max-width:900px){.lampe-grille{grid-template-columns:1fr;gap:clamp(36px,7vw,56px)}}
+
+figure.lampe-vedette{display:flex;justify-content:center}
+.lampe-vedette img{
+  width:100%;max-width:560px;
+  filter:drop-shadow(0 0 90px rgba(139,107,255,.32));
+}
+
+figure.lampe-cercle{display:flex;flex-direction:column;gap:14px;align-items:center}
+.lampe-cercle img{
+  width:min(370px,86%);aspect-ratio:1/1;object-fit:cover;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(201,172,112,.38), 0 0 90px rgba(105,70,255,.30);
+}
+.lampe-cercle figcaption{text-align:center}
+
+.lampe-points{
+  list-style:none;margin:clamp(34px,4vw,56px) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);
+}
+@media(max-width:760px){.lampe-points{grid-template-columns:1fr;gap:20px}}
+.lampe-points li{display:flex;flex-direction:column;gap:7px;padding-top:16px;border-top:1px solid rgba(201,172,112,.28)}
+.lampe-points strong{font-family:var(--f-display);font-weight:400;font-size:19px;color:var(--ice)}
+.lampe-points span{font-size:14.5px;color:var(--ice-dim)}
+
+/* ---------- caracteristiques ---------- */
+.specs{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media(max-width:840px){.specs{grid-template-columns:1fr}}
+.spec-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column}
+.spec-list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+  padding:15px 0;border-bottom:1px solid rgba(139,107,255,.22);
+  font-size:15px;
+}
+.spec-list li span:first-child{
+  flex:0 0 auto;
+  font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--ice-dim);
+}
+.spec-list li span:last-child{
+  text-align:right;font-variant-numeric:tabular-nums;
+  font-family:var(--f-display);font-weight:400;font-size:19px;color:var(--ice);
+}
+.spec-list li.prix{border-bottom-color:rgba(201,172,112,.28)}
+.spec-list li.prix + li.prix{}
+.spec-list li.prix span:last-child{color:var(--or);font-size:26px}
+.spec-list li.prix:first-of-type{margin-top:14px;border-top:1px solid rgba(201,172,112,.28)}
+.comparatif{
+  margin-top:clamp(26px,3vw,38px);
+  border:1px solid rgba(201,172,112,.32);
+  padding:clamp(18px,2.2vw,26px);
+}
+.comparatif .titre{
+  font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--or);margin:0 0 14px;
+}
+.comparatif .l{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:8px 0;font-size:14.5px;color:var(--ice-dim);
+}
+.comparatif .l b{
+  font-family:var(--f-display);font-weight:400;font-size:18px;
+  color:var(--ice);font-variant-numeric:tabular-nums;
+}
+.comparatif .l.gain{
+  margin-top:8px;padding-top:14px;border-top:1px solid rgba(201,172,112,.32);
+  color:var(--ice);
+}
+.comparatif .l.gain b{color:var(--or);font-size:24px}
+.comparatif .note{margin:12px 0 0;font-size:12px;color:var(--ice-dim)}
+.buy{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px}
+
+/* ---------- final ---------- */
+.closing{display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
+.closing .d{max-width:16ch}
+
+/* ---------- formulaire ---------- */
+form.order{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){form.order{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.wide{grid-column:1/-1}
+.field > .pill{align-self:flex-start}
+.field label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ice-dim)}
+.field input,.field textarea,.field select{
+  font:inherit;font-size:15px;font-weight:300;
+  background:transparent;color:var(--ice);
+  border:0;border-bottom:1px solid rgba(139,107,255,.45);
+  padding:9px 2px;border-radius:0;
+}
+.field select option{background:var(--navy);color:var(--ice)}
+.field textarea{resize:vertical;min-height:76px}
+.field input:focus,.field textarea:focus,.field select:focus{border-bottom-color:var(--or);outline:none}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:300}
+.consent input{accent-color:var(--or);margin-top:3px}
+
+/* ---------- stylo en 3D ---------- */
+.scene3d{
+  position:relative;
+  aspect-ratio:1/1.15;
+  width:100%;
+  cursor:grab;
+  touch-action:none;
+}
+.scene3d.dragging{cursor:grabbing}
+.scene3d canvas{display:block;width:100%;height:100%}
+.scene3d .repli{
+  position:absolute;inset:0;margin:auto;
+  width:auto;height:100%;object-fit:contain;
+  filter:drop-shadow(0 0 3px rgba(226,232,248,.26)) drop-shadow(0 0 40px rgba(201,172,112,.16));
+}
+.scene3d .indice{
+  position:absolute;left:50%;bottom:4px;transform:translateX(-50%);
+  font-size:10.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ice-dim);pointer-events:none;
+  transition:opacity .4s ease;
+}
+.scene3d:focus-visible{outline:1px solid var(--or);outline-offset:8px}
+
+/* ---------- commande ---------- */
+.order-intro{max-width:54ch;margin-top:14px}
+.order-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,5vw,64px);align-items:start;
+  margin-top:clamp(30px,4vw,52px);
+}
+@media(max-width:900px){.order-grid{grid-template-columns:1fr}}
+
+.lot{
+  display:flex;gap:18px;align-items:center;
+  padding:16px 18px;
+  border:1px solid rgba(139,107,255,.35);
+  background:rgba(139,107,255,.07);
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.lot + .lot{margin-top:14px}
+.lot.vedette{border-color:rgba(201,172,112,.42);background:rgba(201,172,112,.055)}
+.lot.on{border-color:var(--or);background:rgba(201,172,112,.09)}
+.etiquette{
+  display:inline-block;margin-left:10px;vertical-align:2px;
+  font-family:var(--f-ui);font-style:normal;font-weight:500;
+  font-size:9.5px;text-transform:uppercase;letter-spacing:.16em;
+  color:#14100A;background:var(--or);
+  padding:3px 8px;white-space:nowrap;
+}
+.lot .who span.bonus{
+  color:var(--or);font-size:12.5px;letter-spacing:.03em;
+  display:inline-flex;align-items:center;gap:6px;margin-top:1px;
+}
+.lot .who span.bonus::before{
+  content:"";width:12px;height:1px;background:var(--or);flex:0 0 auto;
+}
+@media(max-width:420px){
+  .etiquette{margin-left:0;margin-top:5px;display:block;width:max-content}
+}
+.lot svg{flex:0 0 auto;width:44px;height:56px}
+.lot .who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.lot .who strong{font-weight:400;font-size:16px}
+.lot .who span{font-size:13.5px;color:var(--ice-dim)}
+.stepper{display:flex;align-items:center;gap:6px;margin-left:auto;flex:0 0 auto}
+.stepper button{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(201,172,112,.5);background:transparent;color:var(--or);
+  font:inherit;font-size:17px;font-weight:300;line-height:1;cursor:pointer;padding:0;
+}
+.stepper button:hover:not(:disabled){background:rgba(201,172,112,.16)}
+.stepper button:disabled{opacity:.3;cursor:default}
+.stepper .q{min-width:2.2ch;text-align:center;font-variant-numeric:tabular-nums;font-weight:400;font-size:16px}
+
+.recap{margin-top:24px;border-top:1px solid rgba(139,107,255,.3)}
+.recap .line{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(139,107,255,.18);font-size:14.5px}
+.recap .line span:last-child{font-variant-numeric:tabular-nums;color:var(--ice-dim)}
+.recap .line.offerte span:last-child{color:var(--or);font-style:normal}
+.recap .empty{padding:14px 0;font-size:14.5px;color:var(--ice-dim)}
+.recap .total{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:15px 0 0;font-size:17px;font-weight:400}
+.recap .total b{font-variant-numeric:tabular-nums;color:var(--or)}
+.recap .delai{font-size:12.5px;color:var(--ice-dim);margin:8px 0 0}
+.recap .note{font-size:13px;color:#FFC46B;margin-top:6px}
+
+.formerr{
+  grid-column:1/-1;margin:0;font-size:14px;font-weight:400;color:#E8A0AE;
+}
+.field .bad{border-bottom-color:#FF8FA8}
+
+.confirm{
+  margin-top:clamp(30px,4vw,52px);
+  border:1px solid rgba(201,172,112,.38);
+  background:rgba(201,172,112,.045);
+  padding:clamp(22px,3vw,38px);
+  box-shadow:none;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.confirm .ref{
+  font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.4vw,40px);
+  color:var(--or);letter-spacing:.06em;
+}
+.confirm pre{
+  margin:0;width:100%;max-width:100%;overflow-x:auto;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.65;
+  color:var(--ice);background:rgba(5,8,26,.6);
+  border:1px solid rgba(139,107,255,.3);padding:16px;
+}
+.confirm .acts{display:flex;flex-wrap:wrap;gap:12px}
+.pill-ghost{
+  background:transparent;color:var(--or);
+  border:1px solid rgba(201,172,112,.55);box-shadow:none;
+}
+.pill-ghost:hover{background:rgba(201,172,112,.14);box-shadow:none}
+
+/* ---------- interface mobile ---------- */
+.burger{
+  display:none;
+  width:44px;height:44px;padding:0;margin-left:auto;
+  background:transparent;border:1px solid rgba(201,172,112,.45);
+  color:var(--or);cursor:pointer;
+  align-items:center;justify-content:center;
+}
+.burger span{display:block;width:18px;height:1px;background:currentColor;position:relative}
+.burger span::before,.burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:1px;background:currentColor;
+  transition:transform .25s ease,opacity .25s ease;
+}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+
+.tiroir{
+  position:fixed;inset:0;z-index:80;
+  background:var(--night);
+  display:flex;flex-direction:column;
+  padding:calc(18px + env(safe-area-inset-top)) var(--pad) calc(24px + env(safe-area-inset-bottom));
+  gap:26px;overflow-y:auto;
+  transform:translateX(100%);visibility:hidden;
+  transition:transform .3s cubic-bezier(.3,.7,.2,1),visibility .3s;
+}
+.tiroir.on{transform:translateX(0);visibility:visible}
+.tiroir-haut{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tiroir-fermer{
+  width:44px;height:44px;padding:0;
+  background:transparent;border:1px solid rgba(201,172,112,.45);
+  color:var(--or);font-size:20px;line-height:1;cursor:pointer;
+}
+.tiroir nav{display:flex;flex-direction:column;gap:4px}
+.tiroir nav a{
+  font-family:var(--f-display);font-weight:400;font-size:30px;
+  padding:12px 0;border-bottom:1px solid rgba(139,107,255,.18);
+}
+.tiroir .formats{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+.tiroir .formats div{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:11px 0;border-bottom:1px solid rgba(201,172,112,.20);
+  font-size:13px;
+}
+.tiroir .formats b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--or)}
+.tiroir > .pill{text-align:center}
+
+.barre-mobile{display:none}
+
+@media(max-width:760px){
+  .nav{flex-wrap:nowrap;gap:14px;padding-bottom:16px}
+  .nav .links{display:none}
+  .nav > .pill{display:none}
+  .burger{display:inline-flex}
+
+  .barre-mobile{
+    display:flex;align-items:center;gap:14px;
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:11px var(--pad) calc(11px + env(safe-area-inset-bottom));
+    background:rgba(5,8,26,.94);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+    border-top:1px solid rgba(201,172,112,.30);
+    transform:translateY(120%);
+    transition:transform .3s cubic-bezier(.3,.7,.2,1);
+  }
+  .barre-mobile.on{transform:translateY(0)}
+  .barre-mobile .resume{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+  .barre-mobile .qte{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--ice-dim)}
+  .barre-mobile .somme{font-family:var(--f-display);font-size:21px;color:var(--or);font-variant-numeric:tabular-nums}
+  .barre-mobile .pill{margin-left:auto;flex:0 0 auto;padding:13px 22px}
+  .barre-mobile ~ footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion: reduce){
+  .tiroir,.barre-mobile{transition:none}
+}
+
+/* Bascule vitrine / boutique. Les selecteurs portent sur `body` pour
+   passer devant les regles de composant (.bandeau, .attente...) qui
+   sont declarees plus bas : sans ca, ouvrir la boutique laisserait
+   le bandeau et la liste d'attente a l'ecran. */
+body:not(.vitrine) .si-vitrine{display:none}
+body.vitrine .si-boutique{display:none}
+body.vitrine .lot .stepper,
+body.vitrine #recap,
+body.vitrine form.order,
+body.vitrine .comparatif .l.gain{display:none}
+body.vitrine .lot{cursor:default}
+
+.bandeau{
+  background:rgba(201,172,112,.12);
+  border-bottom:1px solid rgba(201,172,112,.32);
+  padding:11px var(--pad);
+  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+  font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--or);
+}
+.bandeau span{text-transform:none;letter-spacing:.02em;font-size:13px;color:var(--ice-dim)}
+
+.attente{
+  margin-top:clamp(28px,4vw,44px);
+  border:1px solid rgba(201,172,112,.35);
+  padding:clamp(22px,3vw,36px);
+  max-width:620px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.attente form{display:flex;flex-wrap:wrap;gap:12px;width:100%}
+.attente input{
+  flex:1 1 240px;min-width:0;font:inherit;font-size:15px;font-weight:300;
+  background:transparent;color:var(--ice);
+  border:0;border-bottom:1px solid rgba(139,107,255,.45);padding:10px 2px;
+}
+.attente input::placeholder{color:var(--ice-dim)}
+.attente .merci{color:var(--or);font-size:14px;margin:0}
+
+/* ---------- informations legales ---------- */
+.legal{margin-top:clamp(28px,3.5vw,44px);border-top:1px solid rgba(139,107,255,.28)}
+.legal details{border-bottom:1px solid rgba(139,107,255,.28)}
+.legal summary{
+  cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:18px 0;
+  font-family:var(--f-display);font-weight:400;font-size:clamp(18px,1.8vw,22px);
+}
+.legal summary::-webkit-details-marker{display:none}
+.legal summary::after{content:"+";color:var(--or);font-size:20px;line-height:1;flex:0 0 auto}
+.legal details[open] summary::after{content:"–"}
+.legal-corps{padding:0 0 22px;max-width:78ch;display:flex;flex-direction:column;gap:14px}
+.legal-corps p{margin:0;font-size:14.5px;line-height:1.7;color:var(--ice-dim)}
+.legal-corps b{color:var(--ice);font-weight:400}
+.aremplir{
+  color:var(--or);border-bottom:1px dashed rgba(201,172,112,.6);
+  padding-bottom:1px;font-style:italic;
+}
+.legal-avis{
+  margin:clamp(24px,3vw,36px) 0 0;max-width:70ch;
+  font-size:13px;color:var(--ice-dim);
+  border-left:2px solid rgba(201,172,112,.45);padding-left:16px;
+}
+
+/* ---------- newsletter + pied ---------- */
+.news{
+  background:var(--navy);
+  padding:clamp(40px,5vw,72px) var(--pad);
+  display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;
+  border-top:1px solid rgba(139,107,255,.3);
+}
+.news form{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%;max-width:520px}
+.news input{
+  flex:1 1 240px;min-width:0;font:inherit;font-size:15px;font-weight:300;
+  background:transparent;color:var(--ice);
+  border:0;border-bottom:1px solid rgba(139,107,255,.45);padding:10px 2px;
+}
+.news input::placeholder{color:var(--ice-dim)}
+.pied-liens{display:flex;flex-wrap:wrap;gap:8px 20px}
+.pied-liens a{border-bottom:1px solid transparent;padding-bottom:1px}
+.pied-liens a:hover{border-bottom-color:var(--or);color:var(--or)}
+footer{
+  background:#03050F;color:var(--ice-dim);
+  padding:20px var(--pad);
+  display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;
+  font-size:12.5px;font-weight:300;letter-spacing:.04em;
+}
+@media (prefers-reduced-motion: reduce){
+  .pill{transition:none}
+}
+</style>
+
+<header class="nav">
+  <a href="#top" class="d" style="font-size:20px">Fantôme</a>
+  <div class="spacer"></div>
+  <nav class="links" aria-label="Principal">
+    <a href="#produit">Le produit</a>
+    <a href="#gestes">Comment ça marche</a>
+    <a href="#uv">Sous UV</a>
+    <a href="#lampe">La lampe</a>
+    <a href="#lot">Formats et prix</a>
+  </nav>
+  <a class="pill" href="#commander">Commander</a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="tiroir" aria-label="Ouvrir le menu"><span></span></button>
+</header>
+
+<div class="bandeau si-vitrine">
+  Ouverture prochaine
+  <span>La boutique n'est pas encore en ligne : les prix sont indicatifs et aucune commande n'est prise.</span>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1 class="d d-xl glow">Une encre qui attend la nuit</h1>
+      <p class="body dim">Le stylo Fantôme écrit incolore. Il faut une lampe à lumière noire pour relire ce qu'on vient d'y laisser.</p>
+      <a class="pill" href="#commander">Commander</a>
+    </div>
+    <figure class="panel">
+      <div class="scene3d" id="scene3d" tabindex="0" role="img"
+           aria-label="Modèle en trois dimensions du stylo à encre invisible, orientable à la souris ou avec les flèches du clavier">
+        <img class="repli" id="repli3d" src="images/stylo-seul.png" alt="Le stylo à encre invisible, capuchon noir et corps fumé">
+        <span class="indice" id="indice3d">Faites pivoter</span>
+      </div>
+    </figure>
+  </section>
+
+  <section class="band band-navy">
+    <div class="manifesto">
+      <h2 class="eyebrow">Qui lit par-dessus votre épaule ?</h2>
+      <p class="d d-lg glow">Tout ce qu'on écrit finit par être lu par quelqu'un d'autre</p>
+      <p class="body lead dim">Un carnet posé sur une table, une note glissée dans un livre, un mot au dos d'une facture : rien de tout cela n'est privé, seulement discret. L'encre invisible déplace le problème — le texte est là, entier, mais il faut la bonne lumière pour y accéder.</p>
+    </div>
+  </section>
+
+  <div class="rule"><p class="eyebrow">Découvrez le stylo Fantôme</p></div>
+
+  <section class="band band-night" id="produit">
+    <div class="split bleed">
+      <figure class="panel">
+        <img src="images/stylos-verticaux.png" alt="Les cinq stylos alignés verticalement, capuchon noir brillant et corps fumé">
+      </figure>
+      <div class="split-copy">
+        <h2 class="d d-lg">Un stylo ordinaire, à un détail près</h2>
+        <p class="body lead dim">Le format, le poids et la pointe sont ceux d'un stylo bille de bureau : 14,6 cm, capuchon compris. La seule chose qui change, c'est l'encre — un pigment incolore qui ne renvoie pas la lumière visible et ne laisse donc rien voir sur le papier.</p>
+        <p class="body dim">À l'unité, par deux ou par cinq : c'est chaque fois le même stylo.</p>
+        <a class="pill pill-violet" href="#lot">Voir le lot</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-jour" id="gestes">
+    <div class="steps-head">
+      <h2 class="d d-lg">Quatre gestes, dans cet ordre</h2>
+      <p class="body lead dim">Le quatrième demande une lampe à lumière noire. Elle se vend à part, et elle est offerte avec le lot de cinq.</p>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <p class="n">1</p>
+        <figure>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C9AC70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M31 8l9 9-19 19-11 2 2-11z"></path>
+            <path d="M28 11l9 9"></path>
+            <path d="M10 43h28"></path>
+          </svg>
+        </figure>
+        <h3 class="d-sm">Écrivez</h3>
+        <p>L'encre sort incolore. Sur le papier, il ne se passe visiblement rien — c'est normal, et c'est le seul retour que vous aurez à ce stade.</p>
+      </div>
+
+      <div class="step">
+        <p class="n">2</p>
+        <figure>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C9AC70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="15"></circle>
+            <path d="M24 15v9l6 4"></path>
+          </svg>
+        </figure>
+        <h3 class="d-sm">Laissez sécher</h3>
+        <p>Quelques secondes suffisent. Le léger reflet humide disparaît et il ne reste plus aucune trace en lumière du jour.</p>
+      </div>
+
+      <div class="step">
+        <p class="n">3</p>
+        <figure>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C9AC70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="17" y="6" width="14" height="10" rx="3"></rect>
+            <path d="M17 16L8 40h32L31 16"></path>
+            <path d="M19 27h10"></path>
+          </svg>
+        </figure>
+        <h3 class="d-sm">Éclairez</h3>
+        <p>Une lampe à lumière noire, braquée sur la feuille. La nôtre tient dans une poche et éclaire une page entière.</p>
+      </div>
+
+      <div class="step">
+        <p class="n">4</p>
+        <figure>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C9AC70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 32c5-14 10-20 14-20 3.5 0 4 5 1.5 10.5C21 28 22.5 31 26 31c4.5 0 8.5-6 11-14"></path>
+            <path d="M9 40h30"></path>
+          </svg>
+        </figure>
+        <h3 class="d-sm">Lisez</h3>
+        <p>Le tracé réapparaît en bleu, net, exactement là où vous l'aviez laissé. Coupez la lampe et il redisparaît.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="band band-deep" id="uv">
+    <div class="uv-wrap">
+      <div class="torch" id="torch">
+        <div class="paper">
+          <svg class="hidden-layer" viewBox="0 0 420 300" aria-label="Démonstration : déplacez le curseur pour éclairer la feuille et révéler un message écrit à l'encre invisible">
+            <defs>
+              <filter id="neon" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="5" result="b"></feGaussianBlur>
+                <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#neon)" fill="none" stroke="#A392FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40 148c14-52 30-74 45-74 13 0 15 18 5 38-10 21-4 30 9 30 17 0 32-22 43-51"></path>
+              <path d="M150 152c12-38 26-56 39-56 11 0 13 14 5 30-8 18-2 27 10 27 14 0 27-16 36-38"></path>
+              <path d="M248 150c10-30 22-44 33-44 9 0 12 11 6 25-6 16-1 23 10 23 13 0 24-13 33-33"></path>
+              <path d="M340 146c6-16 13-24 20-24"></path>
+              <path d="M52 196h318"></path>
+              <circle cx="210" cy="64" r="17"></circle>
+              <path d="M210 30v-14M210 112v14M176 64h-14M244 64h14M186 40l-10-10M234 88l10 10M234 40l10-10M186 88l-10 10"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="beam"></div>
+        <span class="hint">Déplacez la lampe</span>
+      </div>
+      <div class="uv-copy">
+        <h2 class="eyebrow">Passez la lampe</h2>
+        <p class="d d-lg glow">Le pigment ne s'allume que sous UV</p>
+        <p class="body lead">Il n'absorbe pas la lumière du jour et ne la réfléchit pas non plus : le papier reste blanc parce qu'optiquement, il ne s'y passe rien. Sous une source ultraviolette, le même pigment réémet dans le bleu visible, et le tracé remonte d'un bloc.</p>
+        <figure class="uv-shot">
+          <img src="images/encre-sous-uv.jpeg" alt="Un hippopotame dessiné à l'encre invisible, révélé en bleu vif sous une lampe à lumière noire">
+          <figcaption>Le rendu réel, photographié par le fabricant</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+<section class="band band-night" id="lampe">
+    <div class="lampe-tete">
+      <h2 class="eyebrow">La lampe</h2>
+      <p class="d d-lg">Ce qui rend l'encre lisible</p>
+      <p class="body lead dim">Une lampe stylo en aluminium noir, à pince, qui tient dans une poche de chemise. C'est la source ultraviolette qu'il faut pour relire ce que les stylos ont écrit.</p>
+      <span class="lampe-offre">
+        <span>Offerte avec le lot de 5</span>
+        <span><b>7,99&nbsp;€</b> seule</span>
+      </span>
+    </div>
+
+    <div class="lampe-grille">
+      <figure class="lampe-vedette">
+        <img src="images/lampe-uv.png" alt="La lampe UV allumée, faisceau violet projeté vers le bas sur une surface sombre">
+      </figure>
+      <figure class="lampe-cercle">
+        <img src="images/lampe-faisceau-tissu.jpeg" alt="Gros plan du faisceau ultraviolet posé sur un tissu sombre, qui vire au bleu">
+        <figcaption>Le faisceau sur un tissu sombre</figcaption>
+      </figure>
+    </div>
+
+    <ul class="lampe-points">
+      <li><strong>Format stylo</strong><span>Corps en aluminium strié, pince de poche : elle se range à côté des stylos qu'elle sert à lire.</span></li>
+      <li><strong>Faisceau concentré</strong><span>La tête à lentille resserre le faisceau : de quoi éclairer une page, pas seulement un mot.</span></li>
+      <li><strong>Offerte avec le lot de 5</strong><span>Une lampe par lot de cinq stylos, ajoutée automatiquement au panier. Seule, elle est à 7,99 €.</span></li>
+    </ul>
+  </section>
+
+  <section class="band band-navy" id="lot">
+    <div class="specs">
+      <figure class="panel">
+        <img src="images/stylos-cote.png" alt="Les cinq stylos avec une cote indiquant 14,6 cm, soit 5,75 pouces">
+      </figure>
+      <div>
+        <h2 class="d d-lg">Ce qu'il y a dans la boîte</h2>
+        <ul class="spec-list">
+          <li><span>Contenu</span><span>1, 2 ou 5 stylos, même modèle</span></li>
+          <li><span>Longueur</span><span>14,6 cm / 5,75 in</span></li>
+          <li><span>Pointe</span><span>Fine</span></li>
+          <li><span>Encre</span><span>Incolore, réactive aux UV</span></li>
+          <li><span>Lampe UV</span><span>Vendue à part, offerte avec le lot de 5</span></li>
+          <li class="prix"><span>À l'unité</span><span>4,99 €</span></li>
+          <li class="prix"><span>Lot de 2</span><span>7,99 €</span></li>
+          <li class="prix"><span>Lot de 5</span><span>19,99 €</span></li>
+        </ul>
+        <div class="comparatif" id="comparatif" hidden></div>
+
+        <div class="buy">
+          <a class="pill" href="#commander">Commander</a>
+          <span class="dim" style="font-size:14px">Les trois formats contiennent le même stylo. La lampe est offerte avec chaque lot de 5.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-night">
+    <div class="closing">
+      <h2 class="d d-xl glow">Écrivez ce que personne ne lira</h2>
+      <a class="pill" href="#commander">Commander</a>
+    </div>
+  </section>
+
+  <section class="band band-navy" id="commander">
+    <h2 class="d d-lg si-boutique">Commander</h2>
+    <h2 class="d d-lg si-vitrine">Les formats</h2>
+    <p class="body dim order-intro si-boutique">Choisissez vos formats, indiquez où livrer. Aucun paiement n'est demandé sur cette page : vous recevez un récapitulatif avec un numéro de commande.</p>
+    <p class="body dim order-intro si-vitrine">Voici les formats et leurs prix. La boutique n'ouvre pas encore : laissez votre adresse et vous serez prévenu le jour où l'on pourra commander.</p>
+
+    <div class="order-grid" id="orderGrid">
+      <div>
+        <div class="lot vedette" data-lot="lot5">
+          <svg viewBox="0 0 44 56" fill="none" stroke="#C9AC70" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 8v40M13.5 8v40M22 8v40M30.5 8v40M39 8v40"></path>
+            <path d="M2.5 8h5M11 8h5M19.5 8h5M28 8h5M36.5 8h5"></path>
+          </svg>
+          <div class="who">
+            <strong>Lot de 5 stylos<em class="etiquette">Le plus populaire</em></strong>
+            <span data-price-for="lot5">—</span>
+            <span class="bonus">Lampe UV offerte</span>
+          </div>
+          <div class="stepper">
+            <button type="button" data-step="lot5:-1" aria-label="Retirer un lot de 5">−</button>
+            <span class="q" data-qty="lot5" aria-live="polite">0</span>
+            <button type="button" data-step="lot5:1" aria-label="Ajouter un lot de 5">+</button>
+          </div>
+        </div>
+        <div class="lot" data-lot="unite">
+          <svg viewBox="0 0 44 56" fill="none" stroke="#C9AC70" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M22 8v40"></path>
+            <path d="M19.5 8h5"></path>
+          </svg>
+          <div class="who"><strong>Stylo à l'unité</strong><span data-price-for="unite">—</span></div>
+          <div class="stepper">
+            <button type="button" data-step="unite:-1" aria-label="Retirer un stylo">−</button>
+            <span class="q" data-qty="unite" aria-live="polite">0</span>
+            <button type="button" data-step="unite:1" aria-label="Ajouter un stylo">+</button>
+          </div>
+        </div>
+        <div class="lot" data-lot="lot2">
+          <svg viewBox="0 0 44 56" fill="none" stroke="#C9AC70" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M16 8v40M28 8v40"></path>
+            <path d="M13.5 8h5M25.5 8h5"></path>
+          </svg>
+          <div class="who"><strong>Lot de 2 stylos</strong><span data-price-for="lot2">—</span></div>
+          <div class="stepper">
+            <button type="button" data-step="lot2:-1" aria-label="Retirer un lot de 2">−</button>
+            <span class="q" data-qty="lot2" aria-live="polite">0</span>
+            <button type="button" data-step="lot2:1" aria-label="Ajouter un lot de 2">+</button>
+          </div>
+        </div>
+
+        <div class="lot" data-lot="lampe">
+          <svg viewBox="0 0 44 56" fill="none" stroke="#C9AC70" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="17" y="6" width="10" height="27" rx="2"></rect>
+            <path d="M19 33h6l3 6H16z"></path>
+            <path d="M19.5 44l-2 7M24.5 44l2 7M22 45v7"></path>
+            <path d="M28 11h3"></path>
+          </svg>
+          <div class="who"><strong>Lampe UV</strong><span data-price-for="lampe">—</span></div>
+          <div class="stepper">
+            <button type="button" data-step="lampe:-1" aria-label="Retirer une lampe">−</button>
+            <span class="q" data-qty="lampe" aria-live="polite">0</span>
+            <button type="button" data-step="lampe:1" aria-label="Ajouter une lampe">+</button>
+          </div>
+        </div>
+
+        <div class="recap" id="recap"></div>
+      </div>
+
+      <div class="attente si-vitrine">
+        <p class="eyebrow">Liste d'attente</p>
+        <p class="d d-sm">Être prévenu de l'ouverture</p>
+        <p class="body dim" style="font-size:14.5px">Laissez votre adresse : vous recevrez un message le jour où la boutique ouvre. Rien d'autre, et vous pouvez vous désinscrire à tout moment.</p>
+        <form id="attenteForm" novalidate>
+          <label for="att-mail" style="position:absolute;left:-9999px">Adresse e-mail</label>
+          <input id="att-mail" type="email" placeholder="Adresse e-mail" required>
+          <button class="pill" type="submit">Me prévenir</button>
+        </form>
+        <p class="merci" id="attenteMerci" hidden></p>
+      </div>
+
+      <form class="order si-boutique" id="orderForm" novalidate>
+        <div class="field wide"><label for="o-nom">Nom complet*</label><input id="o-nom" name="nom" autocomplete="name" required></div>
+        <div class="field wide"><label for="o-mail">E-mail*</label><input id="o-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="field wide"><label for="o-adr">Adresse de livraison*</label><textarea id="o-adr" name="adresse" autocomplete="street-address" required></textarea></div>
+        <div class="field"><label for="o-cp">Code postal*</label><input id="o-cp" name="cp" autocomplete="postal-code" required></div>
+        <div class="field"><label for="o-ville">Ville*</label><input id="o-ville" name="ville" autocomplete="address-level2" required></div>
+        <div class="field wide"><label for="o-tel">Téléphone</label><input id="o-tel" name="tel" type="tel" autocomplete="tel"></div>
+        <div class="field wide"><label for="o-msg">Message</label><textarea id="o-msg" name="message"></textarea></div>
+        <p class="formerr" id="formErr" role="alert" hidden></p>
+        <div class="field wide"><button class="pill" type="submit">Passer la commande</button></div>
+      </form>
+    </div>
+
+    <div class="confirm" id="confirm" hidden>
+      <p class="eyebrow">Commande enregistrée</p>
+      <p class="ref" id="confirmRef"></p>
+      <p class="body dim" style="max-width:52ch">Gardez ce numéro. Envoyez-nous le récapitulatif ci-dessous pour que nous puissions traiter la commande.</p>
+      <pre id="confirmTxt"></pre>
+      <div class="acts">
+        <a class="pill" id="confirmMail" href="#">Envoyer par e-mail</a>
+        <button class="pill pill-ghost" type="button" id="confirmCopy">Copier le récapitulatif</button>
+        <button class="pill pill-ghost" type="button" id="confirmNew">Nouvelle commande</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="band band-navy" id="legal">
+  <p class="eyebrow">Informations légales</p>
+  <h2 class="d d-lg" style="margin-top:12px">Ce que vous avez le droit de savoir</h2>
+
+  <div class="legal">
+    <details id="mentions">
+      <summary>Mentions légales</summary>
+      <div class="legal-corps">
+        <p class="si-vitrine"><b>Éditeur du site.</b> Ce site est édité par un particulier et ne constitue pas, en l'état, une offre de vente : aucune commande n'y est prise. Conformément à la loi pour la confiance dans l'économie numérique, les coordonnées de l'éditeur sont détenues par l'hébergeur, qui peut les communiquer sur requête de l'autorité judiciaire.</p>
+        <p class="si-boutique"><b>Éditeur du site.</b> <span class="aremplir">Raison sociale</span>, <span class="aremplir">forme juridique</span> au capital de <span class="aremplir">montant</span>, dont le siège social est situé <span class="aremplir">adresse complète</span>, immatriculée au RCS de <span class="aremplir">ville</span> sous le numéro <span class="aremplir">SIREN</span>. Numéro de TVA intracommunautaire : <span class="aremplir">FR…</span>.</p>
+        <p class="si-boutique"><b>Directeur de la publication.</b> <span class="aremplir">Prénom et nom</span>.</p>
+        <p class="si-boutique"><b>Contact.</b> <span class="aremplir">adresse e-mail</span> — <span class="aremplir">téléphone</span>.</p>
+        <p class="si-vitrine"><b>Contact.</b> <span class="aremplir">adresse e-mail</span>.</p>
+        <p><b>Hébergeur.</b> <span class="aremplir">Nom de l'hébergeur</span>, <span class="aremplir">adresse</span>, <span class="aremplir">téléphone</span>.</p>
+        <p><b>Propriété intellectuelle.</b> Les textes et la mise en page de ce site en sont la propriété. Les photographies des produits proviennent des fiches fournisseur.</p>
+      </div>
+    </details>
+
+    <details id="cgv" class="si-boutique">
+      <summary>Conditions générales de vente</summary>
+      <div class="legal-corps">
+        <p><b>1. Objet.</b> Les présentes conditions régissent les ventes conclues sur ce site entre <span class="aremplir">raison sociale</span> et tout consommateur au sens du code de la consommation.</p>
+        <p><b>2. Produits et prix.</b> Les produits sont présentés avec leurs caractéristiques essentielles. Les prix sont indiqués en euros toutes taxes comprises, hors frais de livraison, lesquels sont indiqués avant validation de la commande. Ils peuvent être modifiés à tout moment, le prix applicable étant celui affiché au moment de la commande.</p>
+        <p><b>3. Commande.</b> La commande est formée lorsque le client valide le formulaire après avoir pu vérifier le détail et le prix total, et corriger d'éventuelles erreurs. Un récapitulatif portant un numéro de commande lui est remis.</p>
+        <p><b>4. Livraison.</b> Les produits sont expédiés à l'adresse indiquée par le client, dans le délai annoncé lors de la commande et, en tout état de cause, dans un délai maximal de trente jours. À défaut, le client peut résoudre la vente dans les conditions prévues à l'article L216-6 du code de la consommation.</p>
+        <p><b>5. Droit de rétractation.</b> Le client dispose de <b>quatorze jours</b> à compter de la réception pour se rétracter sans avoir à motiver sa décision. Il en informe <span class="aremplir">raison sociale</span> par une déclaration dénuée d'ambiguïté, à <span class="aremplir">adresse e-mail</span> ou <span class="aremplir">adresse postale</span>. Les produits sont renvoyés au plus tard quatorze jours après cette notification ; <span class="aremplir">préciser qui supporte les frais de retour</span>. Le remboursement intervient au plus tard quatorze jours après récupération des produits ou preuve de leur expédition.</p>
+        <p><b>6. Garanties légales.</b> Tous les produits bénéficient de la garantie légale de conformité (articles L217-3 et suivants du code de la consommation) et de la garantie contre les vices cachés (articles 1641 et suivants du code civil). Le client peut demander la réparation ou le remplacement du bien non conforme, puis, sous conditions, une réduction du prix ou la résolution du contrat. Ces garanties s'appliquent indépendamment de toute garantie commerciale.</p>
+        <p><b>7. Paiement.</b> <span class="aremplir">Décrire les moyens de paiement acceptés et le moment du débit.</span></p>
+        <p><b>8. Médiation.</b> En cas de litige non résolu, le client peut recourir gratuitement à un médiateur de la consommation : <span class="aremplir">nom et coordonnées du médiateur</span>. Il peut également utiliser la plateforme européenne de règlement en ligne des litiges.</p>
+        <p><b>9. Droit applicable.</b> Les présentes conditions sont soumises au droit français.</p>
+      </div>
+    </details>
+
+    <details id="confidentialite">
+      <summary>Politique de confidentialité</summary>
+      <div class="legal-corps">
+        <p class="si-boutique"><b>Responsable du traitement.</b> <span class="aremplir">Raison sociale</span>, <span class="aremplir">adresse</span>, joignable à <span class="aremplir">adresse e-mail</span>.</p>
+        <p class="si-vitrine"><b>Responsable du traitement.</b> L'éditeur de ce site, joignable à <span class="aremplir">adresse e-mail</span>.</p>
+        <p class="si-boutique"><b>Données collectées.</b> Le formulaire de commande recueille vos nom, adresse postale, adresse e-mail et, si vous le renseignez, votre numéro de téléphone, ainsi que le message que vous joignez.</p>
+        <p class="si-vitrine"><b>Données collectées.</b> Ce site ne recueille aujourd'hui que votre adresse e-mail, et seulement si vous la laissez pour être prévenu de l'ouverture.</p>
+        <p class="si-boutique"><b>Finalité et base légale.</b> Ces données servent uniquement à traiter et à livrer votre commande, et à vous répondre. Le traitement repose sur l'exécution du contrat de vente. Si vous vous inscrivez à la lettre d'information, votre adresse n'est utilisée à cette fin qu'avec votre consentement, retirable à tout moment.</p>
+        <p class="si-vitrine"><b>Finalité et base légale.</b> Votre adresse sert uniquement à vous annoncer l'ouverture de la boutique. Le traitement repose sur votre consentement, que vous pouvez retirer à tout moment en écrivant à l'adresse ci-dessus.</p>
+        <p class="si-boutique"><b>Destinataires.</b> Vos données ne sont ni vendues ni cédées. Elles sont transmises au transporteur pour la seule livraison.</p>
+        <p class="si-vitrine"><b>Destinataires.</b> Votre adresse n'est ni vendue, ni cédée, ni transmise à personne.</p>
+        <p class="si-boutique"><b>Durée de conservation.</b> <span class="aremplir">Préciser la durée — par exemple trois ans après le dernier contact pour la prospection, et la durée légale de conservation des factures.</span></p>
+        <p class="si-vitrine"><b>Durée de conservation.</b> Votre adresse est conservée jusqu'à l'ouverture de la boutique, ou jusqu'à votre désinscription si elle intervient avant.</p>
+        <p><b>Vos droits.</b> Vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité. Écrivez à l'adresse de contact indiquée ci-dessus. Vous pouvez introduire une réclamation auprès de la CNIL.</p>
+        <p><b>Cookies.</b> Ce site ne dépose aucun cookie de mesure d'audience ni de publicité. Le contenu de votre panier est conservé dans votre navigateur, sur votre appareil, et n'est transmis à personne.</p>
+      </div>
+    </details>
+  </div>
+
+  <p class="legal-avis si-vitrine">Tant que la boutique n'est pas ouverte, seuls un e-mail de contact et les coordonnées de l'hébergeur sont à compléter — ce dernier est obligatoire même pour un site personnel. Les conditions de vente n'apparaîtront qu'à l'ouverture, une fois l'activité déclarée.</p>
+  <p class="legal-avis si-boutique">Ces textes reprennent les obligations habituelles du droit français de la vente à distance. Les passages surlignés sont à compléter, et l'ensemble mérite d'être relu par un professionnel avant la mise en ligne.</p>
+</section>
+
+<section class="news">
+  <p class="d d-sm">Restez informés</p>
+  <form onsubmit="return false">
+    <label for="nl" style="position:absolute;left:-9999px">Adresse e-mail</label>
+    <input id="nl" type="email" placeholder="Adresse e-mail" required>
+    <button class="pill" type="submit">S'abonner</button>
+  </form>
+</section>
+
+<div class="tiroir" id="tiroir" aria-hidden="true">
+  <div class="tiroir-haut">
+    <span class="d" style="font-size:20px">Fantôme</span>
+    <button class="tiroir-fermer" id="tiroirFermer" aria-label="Fermer le menu">✕</button>
+  </div>
+  <nav aria-label="Menu mobile">
+    <a href="#produit">Le produit</a>
+    <a href="#gestes">Comment ça marche</a>
+    <a href="#uv">Sous UV</a>
+    <a href="#lampe">La lampe</a>
+    <a href="#lot">Formats et prix</a>
+  </nav>
+  <div class="formats" id="tiroirFormats"></div>
+  <a class="pill" href="#commander">Commander</a>
+</div>
+
+<div class="barre-mobile" id="barreMobile">
+  <div class="resume">
+    <span class="qte" id="barreQte">Panier vide</span>
+    <span class="somme" id="barreSomme">—</span>
+  </div>
+  <a class="pill" href="#commander">Commander</a>
+</div>
+
+<footer>
+  <span>© 2026 Fantôme</span>
+  <nav class="pied-liens" aria-label="Informations légales">
+    <a href="#mentions">Mentions légales</a>
+    <a href="#cgv" class="si-boutique">CGV</a>
+    <a href="#confidentialite">Confidentialité</a>
+  </nav>
+  <span>Photographies : fiche fournisseur</span>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('torch');
+  if(!t)return;
+  function move(e){
+    var r=t.getBoundingClientRect();
+    var p=(e.touches&&e.touches[0])||e;
+    t.style.setProperty('--x',((p.clientX-r.left)/r.width*100)+'%');
+    t.style.setProperty('--y',((p.clientY-r.top)/r.height*100)+'%');
+  }
+  t.addEventListener('pointermove',move);
+  t.addEventListener('touchmove',function(e){e.preventDefault();move(e);},{passive:false});
+})();
+</script>
+
+<script>
+/* ===================================================================
+   COMMANDE
+   -------------------------------------------------------------------
+   1) Les prix. Mets tes deux montants ici, en euros. Tant qu'ils
+      valent 0, la page affiche « prix à confirmer » près du total.
+   2) L'adresse qui reçoit les commandes.
+   3) Pour brancher un vrai backend (ton API, Shopify, Formspree...),
+      remplace le corps de envoyerCommande() — tout le reste est déjà
+      en place et n'a pas besoin d'être touché.
+   =================================================================== */
+var PRIX = { lot5: 19.99, lot2: 7.99, unite: 4.99, lampe: 7.99 };
+/* L'INTERRUPTEUR.
+   false = vitrine : les prix restent visibles mais rien ne se commande,
+           le tunnel devient une liste d'attente, les CGV sont masquées.
+   true  = boutique : tout s'ouvre. À ne passer à true qu'une fois ton
+           SIRET obtenu et les mentions légales complétées. */
+var BOUTIQUE_OUVERTE = false;
+
+var EMAIL_BOUTIQUE = "commandes@fantome.example";
+
+/* Frais de port. Tant que `prix` vaut null, la page n'annonce aucun
+   montant : elle dit que le port sera calculé à la commande, ce qui
+   est vrai. Renseigne les trois valeurs et tout s'allume :
+     prix       : le tarif d'expédition, en euros
+     offertDes  : le montant de commande à partir duquel il est offert
+                  (null si tu n'offres jamais le port)
+     delai      : ce qui s'affiche au client, ex. "3 à 5 jours ouvrés" */
+var LIVRAISON = { prix: null, offertDes: null, delai: "" };
+
+var LOTS = {
+  lot5:  { nom: "Lot de 5 stylos" },
+  unite: { nom: "Stylo à l'unité" },
+  lot2:  { nom: "Lot de 2 stylos" },
+  lampe: { nom: "Lampe UV" }
+};
+var REFS = Object.keys(LOTS);
+window.REFS = REFS; window.LOTS = LOTS; window.PRIX = PRIX; window.euro = euro;
+
+var euro = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" });
+var prixDefinis = function(){ return REFS.every(function(k){ return PRIX[k] > 0; }); };
+
+var panier = {};
+REFS.forEach(function(k){ panier[k] = 0; });
+try {
+  var sauve = JSON.parse(localStorage.getItem("fantome-panier") || "null");
+  if (sauve && typeof sauve === "object") {
+    REFS.forEach(function(k){
+      panier[k] = Math.max(0, Math.min(99, parseInt(sauve[k], 10) || 0));
+    });
+  }
+} catch (e) {}
+
+function sauver(){
+  try { localStorage.setItem("fantome-panier", JSON.stringify(panier)); } catch (e) {}
+}
+
+function sousTotal(){
+  return REFS.reduce(function(t, k){ return t + panier[k] * PRIX[k]; }, 0);
+}
+// null = tarif non renseigné, donc rien n'est annoncé au client
+function fraisPort(){
+  if (LIVRAISON.prix === null || LIVRAISON.prix === undefined) return null;
+  if (articles() === 0) return null;
+  if (LIVRAISON.offertDes !== null && LIVRAISON.offertDes !== undefined
+      && sousTotal() >= LIVRAISON.offertDes) return 0;
+  return LIVRAISON.prix;
+}
+function total(){
+  var p = fraisPort();
+  return sousTotal() + (p === null ? 0 : p);
+}
+// une lampe offerte par lot de cinq, ajoutée d'office
+function lampesOffertes(){
+  return panier.lot5;
+}
+function articles(){
+  return REFS.reduce(function(t, k){ return t + panier[k]; }, 0) + lampesOffertes();
+}
+
+function rendre(){
+  REFS.forEach(function(k){
+    var q = document.querySelector('[data-qty="' + k + '"]');
+    if (q) q.textContent = panier[k];
+    var carte = document.querySelector('.lot[data-lot="' + k + '"]');
+    if (carte) carte.classList.toggle("on", panier[k] > 0);
+    var moins = document.querySelector('[data-step="' + k + ':-1"]');
+    if (moins) moins.disabled = panier[k] === 0;
+    var p = document.querySelector('[data-price-for="' + k + '"]');
+    if (p) {
+      if (PRIX[k] <= 0) p.textContent = "prix à confirmer";
+      else if (k === "lampe") {
+        var off = lampesOffertes();
+        p.textContent = euro.format(PRIX[k]) + " pièce"
+          + (off > 0
+              ? "  ·  " + off + (off > 1 ? " offertes avec vos lots de 5" : " offerte avec votre lot de 5")
+              : "");
+      }
+      else p.textContent = euro.format(PRIX[k]) + (k === "unite" ? " pièce" : " le lot");
+    }
+  });
+
+  var r = document.getElementById("recap");
+  if (!r) return;
+  if (articles() === 0) {
+    r.innerHTML = '<p class="empty">Votre panier est vide.</p>';
+    return;
+  }
+  var html = "";
+  REFS.forEach(function(k){
+    if (!panier[k]) return;
+    var ligne = panier[k] * PRIX[k];
+    html += '<div class="line"><span>' + LOTS[k].nom + ' × ' + panier[k] + '</span><span>'
+          + (PRIX[k] > 0 ? euro.format(ligne) : "—") + '</span></div>';
+  });
+  var off = lampesOffertes();
+  if (off > 0) {
+    html += '<div class="line offerte"><span>Lampe UV × ' + off + '</span><span>offerte</span></div>';
+  }
+  var port = fraisPort();
+  if (port === null) {
+    html += '<div class="line"><span>Livraison</span><span>calculée à la commande</span></div>';
+  } else if (port === 0) {
+    html += '<div class="line offerte"><span>Livraison</span><span>offerte</span></div>';
+  } else {
+    html += '<div class="line"><span>Livraison</span><span>' + euro.format(port) + '</span></div>';
+  }
+  var apresTotal = "";
+  if (LIVRAISON.delai) {
+    apresTotal += '<p class="delai">Expédition sous ' + LIVRAISON.delai + '.</p>';
+  }
+  if (LIVRAISON.prix !== null && LIVRAISON.offertDes !== null && port > 0) {
+    var manque = LIVRAISON.offertDes - sousTotal();
+    if (manque > 0) apresTotal += '<p class="delai">Port offert à partir de ' + euro.format(LIVRAISON.offertDes)
+                               + ' — il vous manque ' + euro.format(manque) + '.</p>';
+  }
+  html += '<div class="total"><span>Total</span><b>'
+        + (prixDefinis() ? euro.format(total()) : "—") + '</b></div>';
+  if (!prixDefinis()) html += '<p class="note">Prix à confirmer avant paiement.</p>';
+  html += apresTotal;
+  r.innerHTML = html;
+}
+
+document.addEventListener("click", function(ev){
+  var b = ev.target.closest("[data-step]");
+  if (!b) return;
+  var parts = b.getAttribute("data-step").split(":");
+  var k = parts[0], d = parseInt(parts[1], 10);
+  panier[k] = Math.max(0, Math.min(99, panier[k] + d));
+  sauver(); rendre();
+});
+
+function reference(){
+  var t = Date.now().toString(36).toUpperCase();
+  var r = "";
+  for (var i = 0; i < 3; i++) r += "ABCDEFGHJKLMNPQRSTUVWXYZ23456789".charAt(Math.floor(Math.random() * 32));
+  return "FTM-" + t.slice(-5) + "-" + r;
+}
+
+function recapTexte(cmd){
+  var l = ["Commande " + cmd.reference, "Passée le " + cmd.date, ""];
+  cmd.lignes.forEach(function(x){
+    l.push("  " + x.quantite + " × " + x.nom + (x.prixUnitaire > 0 ? "   " + euro.format(x.total) : "   offerte"));
+  });
+  l.push("");
+  if (cmd.fraisPort === null)     l.push("  Livraison : calculée à la commande");
+  else if (cmd.fraisPort === 0)   l.push("  Livraison : offerte");
+  else                            l.push("  Livraison : " + euro.format(cmd.fraisPort));
+  l.push("  Total : " + (cmd.total > 0 ? euro.format(cmd.total) : "à confirmer"));
+  l.push("");
+  l.push("Livraison");
+  l.push("  " + cmd.client.nom);
+  cmd.client.adresse.split("\n").forEach(function(x){ if (x.trim()) l.push("  " + x.trim()); });
+  l.push("  " + cmd.client.cp + " " + cmd.client.ville);
+  l.push("  " + cmd.client.email + (cmd.client.tel ? "   " + cmd.client.tel : ""));
+  if (cmd.client.message) { l.push(""); l.push("Message"); l.push("  " + cmd.client.message); }
+  return l.join("\n");
+}
+
+/* ---- le seul endroit à remplacer pour brancher un backend ---------
+   Doit résoudre quand la commande est acceptée, rejeter sinon.
+   Exemple :
+     return fetch("https://ton-api/commandes", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify(cmd)
+     }).then(function(r){ if (!r.ok) throw new Error("refus serveur"); });
+   ------------------------------------------------------------------ */
+function envoyerCommande(cmd){
+  return Promise.resolve();
+}
+
+var form = document.getElementById("orderForm");
+if (form) form.addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var err = document.getElementById("formErr");
+  var manquants = [];
+  ["o-nom","o-mail","o-adr","o-cp","o-ville"].forEach(function(id){
+    var el = document.getElementById(id);
+    var vide = !el.value.trim();
+    el.classList.toggle("bad", vide);
+    if (vide) manquants.push(el.previousElementSibling.textContent.replace("*",""));
+  });
+  var mail = document.getElementById("o-mail");
+  var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim());
+  if (mail.value.trim() && !mailOk) { mail.classList.add("bad"); manquants.push("un e-mail valide"); }
+
+  if (articles() === 0) {
+    err.textContent = "Ajoutez au moins un lot avant de commander.";
+    err.hidden = false; return;
+  }
+  if (manquants.length) {
+    err.textContent = "Il manque : " + manquants.join(", ") + ".";
+    err.hidden = false; return;
+  }
+  err.hidden = true;
+
+  var cmd = {
+    reference: reference(),
+    date: new Date().toLocaleString("fr-FR"),
+    lignes: REFS.filter(function(k){ return panier[k] > 0; }).map(function(k){
+      return { lot: k, nom: LOTS[k].nom, quantite: panier[k], prixUnitaire: PRIX[k], total: panier[k] * PRIX[k] };
+    }).concat(lampesOffertes() > 0
+      ? [{ lot: "lampe-offerte", nom: "Lampe UV", quantite: lampesOffertes(), prixUnitaire: 0, total: 0 }]
+      : []),
+    sousTotal: sousTotal(),
+    fraisPort: fraisPort(),
+    total: total(),
+    client: {
+      nom: document.getElementById("o-nom").value.trim(),
+      email: mail.value.trim(),
+      adresse: document.getElementById("o-adr").value.trim(),
+      cp: document.getElementById("o-cp").value.trim(),
+      ville: document.getElementById("o-ville").value.trim(),
+      tel: document.getElementById("o-tel").value.trim(),
+      message: document.getElementById("o-msg").value.trim()
+    }
+  };
+
+  var bouton = form.querySelector('button[type="submit"]');
+  bouton.disabled = true;
+
+  envoyerCommande(cmd).then(function(){
+    var txt = recapTexte(cmd);
+    document.getElementById("confirmRef").textContent = cmd.reference;
+    document.getElementById("confirmTxt").textContent = txt;
+    document.getElementById("confirmMail").href =
+      "mailto:" + EMAIL_BOUTIQUE +
+      "?subject=" + encodeURIComponent("Commande " + cmd.reference) +
+      "&body=" + encodeURIComponent(txt);
+    document.getElementById("orderGrid").hidden = true;
+    document.getElementById("confirm").hidden = false;
+    document.getElementById("confirm").scrollIntoView({ behavior: "smooth", block: "center" });
+    REFS.forEach(function(k){ panier[k] = 0; }); sauver(); rendre();
+    form.reset();
+  }).catch(function(){
+    err.textContent = "La commande n'a pas pu être envoyée. Réessayez dans un instant.";
+    err.hidden = false;
+  }).then(function(){
+    bouton.disabled = false;
+  });
+});
+
+document.addEventListener("click", function(ev){
+  var a = ev.target.closest('a[href^="#"]');
+  if (!a) return;
+  var cible = document.getElementById(a.getAttribute("href").slice(1));
+  if (!cible) return;
+  ev.preventDefault();
+  // un lien vers un paragraphe replié l'ouvre avant d'y descendre
+  if (cible.tagName === "DETAILS") cible.open = true;
+  else if (cible.closest) {
+    var repli = cible.closest("details");
+    if (repli) repli.open = true;
+  }
+  var doux = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  cible.scrollIntoView({ behavior: doux ? "smooth" : "auto", block: "start" });
+  try { history.replaceState(null, "", a.getAttribute("href")); } catch (e) {}
+});
+
+// Le comparatif se calcule sur les prix du catalogue, ceux qui sont
+// réellement pratiqués. S'il n'y a plus d'écart, le bloc s'efface au
+// lieu d'annoncer une économie qui n'existe pas.
+(function(){
+  var el = document.getElementById("comparatif");
+  if (!el) return;
+  var separe = 5 * PRIX.unite + PRIX.lampe;
+  var lot = PRIX.lot5;
+  var ecart = separe - lot;
+  if (!(PRIX.unite > 0 && PRIX.lampe > 0 && lot > 0) || ecart <= 0) return;
+  el.innerHTML =
+      '<p class="titre">Le même contenu, deux façons de l\'acheter</p>'
+    + '<div class="l"><span>5 stylos à l\'unité, plus une lampe</span><b>' + euro.format(separe) + '</b></div>'
+    + '<div class="l"><span>Le lot de 5, lampe comprise</span><b>' + euro.format(lot) + '</b></div>'
+    + '<div class="l gain"><span>Ce que vous gardez</span><b>' + euro.format(ecart) + '</b></div>'
+    + '<p class="note">Calculé sur les prix de cette page, ceux auxquels chaque article est vendu séparément.</p>';
+  el.hidden = false;
+})();
+
+/* ---- vitrine ou boutique ------------------------------------------
+   Tant que BOUTIQUE_OUVERTE vaut false, la page montre le produit et
+   ses prix mais ne prend aucune commande : pas de panier, pas de
+   formulaire de livraison, pas de CGV. Une liste d'attente les
+   remplace. ------------------------------------------------------- */
+(function(){
+  if (BOUTIQUE_OUVERTE) return;
+  document.body.classList.add("vitrine");
+
+  var f = document.getElementById("attenteForm");
+  var m = document.getElementById("attenteMerci");
+  if (!f) return;
+  f.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var champ = document.getElementById("att-mail");
+    var val = champ.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      m.hidden = false;
+      m.textContent = "Cette adresse ne semble pas valide.";
+      m.style.color = "#E8A0AE";
+      champ.focus();
+      return;
+    }
+    // Pas de serveur : on ouvre la messagerie du visiteur avec un message
+    // pret a partir. Rien n'est stocke, et on ne pretend pas le contraire.
+    m.hidden = false;
+    m.style.color = "";
+    m.textContent = "Votre message s'ouvre dans votre messagerie — il ne reste qu'à l'envoyer.";
+    window.location.href = "mailto:" + EMAIL_BOUTIQUE
+      + "?subject=" + encodeURIComponent("Liste d'attente")
+      + "&body=" + encodeURIComponent(
+          "Bonjour,\n\nPrévenez-moi de l'ouverture de la boutique.\n\n" + val + "\n");
+  });
+
+  // la barre mobile ne parle plus de panier : voir majBarre() plus bas
+  // aucun bouton ne doit promettre une commande impossible
+  [].forEach.call(document.querySelectorAll('a.pill[href="#commander"]'), function(b){
+    b.textContent = "Être prévenu";
+  });
+  var bouton = document.querySelector(".barre-mobile .pill");
+  if (bouton) bouton.textContent = "Me prévenir";
+})();
+
+var lienMail = document.getElementById("confirmMail");
+if (lienMail) lienMail.href = "mailto:" + EMAIL_BOUTIQUE;
+
+var copie = document.getElementById("confirmCopy");
+if (copie) copie.addEventListener("click", function(){
+  var t = document.getElementById("confirmTxt").textContent;
+  var fini = function(){ copie.textContent = "Copié"; setTimeout(function(){ copie.textContent = "Copier le récapitulatif"; }, 2000); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(fini, function(){ copie.textContent = "Copie refusée par le navigateur"; });
+  } else {
+    var z = document.createElement("textarea");
+    z.value = t; document.body.appendChild(z); z.select();
+    try { document.execCommand("copy"); fini(); } catch (e) { copie.textContent = "Copie impossible"; }
+    document.body.removeChild(z);
+  }
+});
+
+var neuf = document.getElementById("confirmNew");
+if (neuf) neuf.addEventListener("click", function(){
+  document.getElementById("confirm").hidden = true;
+  document.getElementById("orderGrid").hidden = false;
+  document.getElementById("orderGrid").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+rendre();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script>
+/* ===================================================================
+   LE STYLO EN 3D
+   Modèle décrit d'après les photos du fournisseur : capuchon opaque,
+   corps fumé, bouchon de queue. Proportions réelles, 14,6 cm pour
+   9 mm de diamètre. Rien n'est ajouté que le produit n'ait pas.
+   =================================================================== */
+(function(){
+  var hote = document.getElementById("scene3d");
+  if (!hote || !window.THREE) return;
+
+  var repli   = document.getElementById("repli3d");
+  var indice  = document.getElementById("indice3d");
+  var sobre   = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  } catch (e) { return; }              // pas de WebGL : la photo reste
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.92;
+  hote.appendChild(renderer.domElement);
+
+  var scene  = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(20, 1, 0.1, 200);
+  camera.position.set(0, 0, 62);
+
+  /* --- un environnement de studio dessiné au canevas : c'est lui qui
+         donne les longs reflets verticaux sur le corps du stylo ----- */
+  (function(){
+    var c = document.createElement("canvas");
+    c.width = 1024; c.height = 512;
+    var g = c.getContext("2d");
+    var f = g.createLinearGradient(0, 0, 0, 512);
+    f.addColorStop(0, "#080c1e"); f.addColorStop(0.5, "#04060f"); f.addColorStop(1, "#020308");
+    g.fillStyle = f; g.fillRect(0, 0, 1024, 512);
+    function bande(x, w, couleur, alpha){
+      var b = g.createLinearGradient(x, 0, x + w, 0);
+      b.addColorStop(0, "rgba(0,0,0,0)");
+      b.addColorStop(0.5, couleur);
+      b.addColorStop(1, "rgba(0,0,0,0)");
+      g.globalAlpha = alpha; g.fillStyle = b; g.fillRect(x, 40, w, 400); g.globalAlpha = 1;
+    }
+    bande(150, 46,  "#ffffff", 0.90);   // la source principale
+    bande(440, 38,  "#C9AC70", 0.55);   // le champagne
+    bande(725, 44,  "#8B6BFF", 0.50);   // l'ultraviolet
+    var tex = new THREE.CanvasTexture(c);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.encoding = THREE.sRGBEncoding;
+    var pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    scene.environment = pmrem.fromEquirectangular(tex).texture;
+    tex.dispose(); pmrem.dispose();
+  })();
+
+  scene.add(new THREE.AmbientLight(0x2a3358, 0.28));
+  var cle = new THREE.DirectionalLight(0xffffff, 0.95); cle.position.set(-4, 7, 9);   scene.add(cle);
+  var uv  = new THREE.DirectionalLight(0x8B6BFF, 1.25); uv.position.set(-7, -2, -5);  scene.add(uv);
+  var au  = new THREE.DirectionalLight(0xC9AC70, 0.80); au.position.set(7, 3, -4);    scene.add(au);
+
+  /* --- le stylo : silhouette révolutionnée autour de son axe -------- */
+  var L = 14.6, R = 0.45;              // centimètres
+
+  function lathe(points, materiau){
+    var v = points.map(function(p){ return new THREE.Vector2(p[0], p[1] - L / 2); });
+    var g = new THREE.LatheGeometry(v, 96);
+    g.computeVertexNormals();
+    return new THREE.Mesh(g, materiau);
+  }
+
+  // Relevé sur la photo : le centre du stylo est noir (RGB 1,1,3) sur
+  // toute sa longueur. Le clair qu'on y voit n'est que du reflet.
+  var noir = new THREE.MeshPhysicalMaterial({
+    color: 0x040405, roughness: 0.17, metalness: 0.0,
+    clearcoat: 1.0, clearcoatRoughness: 0.06, envMapIntensity: 0.50
+  });
+  var fume = new THREE.MeshPhysicalMaterial({
+    color: 0x070709, roughness: 0.09, metalness: 0.0,
+    clearcoat: 1.0, clearcoatRoughness: 0.03, envMapIntensity: 0.85
+  });
+
+  var stylo = new THREE.Group();
+
+  /* Profil relevé au pixel près sur la photo du fournisseur : largeur
+     mesurée ligne par ligne, échantillonnée serré aux deux extrémités
+     pour que le dôme et la queue restent ronds. Rayons en centimètres. */
+
+  // corps, du bouchon de queue jusque sous le capuchon
+  stylo.add(lathe([
+    [0.000,  0.000], [0.190,  0.015], [0.299,  0.045], [0.348,  0.076],
+    [0.378,  0.106], [0.401,  0.136], [0.416,  0.166], [0.426,  0.197],
+    [0.432,  0.227], [0.437,  0.257], [0.438,  0.287], [0.438,  0.317],
+    [0.438,  0.348], [0.438,  0.423], [0.438,  0.499], [0.441,  0.574],
+    [0.446,  0.650], [0.533,  0.982], [0.561,  1.315], [0.559,  1.647],
+    [0.555,  1.980], [0.550,  2.312], [0.544,  2.645], [0.544,  2.977],
+    [0.536,  3.310], [0.536,  3.642], [0.536,  3.975], [0.536,  4.308],
+    [0.524,  4.640], [0.521,  4.973], [0.521,  5.305], [0.521,  5.638],
+    [0.521,  5.970], [0.521,  6.303], [0.520,  6.635], [0.514,  6.968],
+    [0.514,  7.300], [0.514,  7.633], [0.506,  7.965], [0.499,  8.297],
+    [0.499,  8.630], [0.499,  8.963], [0.499,  9.295], [0.499,  9.627],
+    [0.497,  9.960], [0.491, 10.293], [0.491, 10.625], [0.523, 10.958],
+    [0.000, 10.958]
+  ], fume));
+
+  // capuchon opaque, dôme compris
+  stylo.add(lathe([
+    [0.000, 10.806], [0.527, 11.003], [0.521, 11.335], [0.514, 11.668],
+    [0.514, 12.000], [0.514, 12.333], [0.512, 12.665], [0.506, 12.998],
+    [0.506, 13.330], [0.499, 13.663], [0.497, 13.739], [0.491, 13.814],
+    [0.491, 13.890], [0.478, 13.965], [0.476, 14.041], [0.464, 14.116],
+    [0.460, 14.192], [0.455, 14.222], [0.449, 14.252], [0.443, 14.283],
+    [0.437, 14.313], [0.426, 14.343], [0.414, 14.373], [0.401, 14.403],
+    [0.382, 14.434], [0.357, 14.464], [0.322, 14.494], [0.278, 14.524],
+    [0.203, 14.555], [0.000, 14.585]
+  ], noir));
+
+  stylo.rotation.z = 0.20;             // légèrement de biais, comme sur les photos
+  var pivot = new THREE.Group();
+  pivot.add(stylo);
+  scene.add(pivot);
+  pivot.rotation.y = -0.5;
+  pivot.rotation.x = 0.06;
+
+  /* --- rotation à la main ------------------------------------------- */
+  var vise = { y: pivot.rotation.y, x: pivot.rotation.x };
+  var attrape = false, dernier = null, touche = false;
+
+  function pointeur(ev){ return (ev.touches && ev.touches[0]) || ev; }
+  function debut(ev){
+    attrape = true; touche = true;
+    dernier = pointeur(ev);
+    dernier = { x: dernier.clientX, y: dernier.clientY };
+    hote.classList.add("dragging");
+    if (indice) indice.style.opacity = "0";
+  }
+  function bouge(ev){
+    if (!attrape) return;
+    var p = pointeur(ev);
+    vise.y += (p.clientX - dernier.x) * 0.011;
+    vise.x += (p.clientY - dernier.y) * 0.007;
+    vise.x = Math.max(-0.55, Math.min(0.55, vise.x));
+    dernier = { x: p.clientX, y: p.clientY };
+    if (ev.cancelable) ev.preventDefault();
+  }
+  function fin(){ attrape = false; hote.classList.remove("dragging"); }
+
+  hote.addEventListener("pointerdown", debut);
+  window.addEventListener("pointermove", bouge, { passive: false });
+  window.addEventListener("pointerup", fin);
+  hote.addEventListener("touchstart", debut, { passive: true });
+  window.addEventListener("touchmove", bouge, { passive: false });
+  window.addEventListener("touchend", fin);
+
+  hote.addEventListener("keydown", function(ev){
+    var pas = 0.22, agi = true;
+    if (ev.key === "ArrowLeft") vise.y -= pas;
+    else if (ev.key === "ArrowRight") vise.y += pas;
+    else if (ev.key === "ArrowUp") vise.x = Math.max(-0.55, vise.x - pas / 2);
+    else if (ev.key === "ArrowDown") vise.x = Math.min(0.55, vise.x + pas / 2);
+    else agi = false;
+    if (agi) { ev.preventDefault(); touche = true; if (indice) indice.style.opacity = "0"; }
+  });
+
+  /* --- dimensionnement ---------------------------------------------- */
+  function dimensionner(){
+    var l = hote.clientWidth, h = hote.clientHeight;
+    if (!l || !h) return;
+    renderer.setSize(l, h, false);
+    camera.aspect = l / h;
+    // le stylo tient toujours dans le cadre, quelle que soit la forme
+    // objet haut et fin : c'est toujours la hauteur qui contraint
+    var besoin = (L * 1.10) / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
+    camera.position.z = besoin;
+    camera.updateProjectionMatrix();
+  }
+  if (window.ResizeObserver) new ResizeObserver(dimensionner).observe(hote);
+  else window.addEventListener("resize", dimensionner);
+  dimensionner();
+
+  /* --- boucle -------------------------------------------------------- */
+  var visible = true;
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }).observe(hote);
+  }
+  function image(){
+    requestAnimationFrame(image);
+    if (!visible) return;
+    if (!attrape && !touche && !sobre) vise.y += 0.0032;
+    pivot.rotation.y += (vise.y - pivot.rotation.y) * 0.12;
+    pivot.rotation.x += (vise.x - pivot.rotation.x) * 0.12;
+    renderer.render(scene, camera);
+  }
+  image();
+
+  if (repli) repli.style.display = "none";   // la 3D a démarré
+})();
+</script>
+
+<script>
+/* ===================================================================
+   INTERFACE MOBILE
+   Barre d'action fixe en bas + menu en tiroir. Rien de tout cela
+   n'existe au-dessus de 760 px : le CSS s'en charge, le script ne
+   fait que piloter les états.
+   =================================================================== */
+(function(){
+  var tiroir  = document.getElementById("tiroir");
+  var ouvrir  = document.getElementById("burger");
+  var fermer  = document.getElementById("tiroirFermer");
+  var barre   = document.getElementById("barreMobile");
+  if (!tiroir || !ouvrir || !barre) return;
+
+  var mobile = function(){ return window.matchMedia("(max-width: 760px)").matches; };
+
+  /* ---- le tiroir ---- */
+  var defilementAvant = 0;
+  function ouvre(){
+    defilementAvant = window.scrollY;
+    tiroir.classList.add("on");
+    tiroir.setAttribute("aria-hidden", "false");
+    ouvrir.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    fermer.focus();
+  }
+  function ferme(rendreFocus){
+    tiroir.classList.remove("on");
+    tiroir.setAttribute("aria-hidden", "true");
+    ouvrir.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    if (rendreFocus) ouvrir.focus();
+  }
+  ouvrir.addEventListener("click", ouvre);
+  fermer.addEventListener("click", function(){ ferme(true); });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && tiroir.classList.contains("on")) ferme(true);
+  });
+  // un lien du tiroir referme avant de faire défiler
+  tiroir.addEventListener("click", function(e){
+    if (e.target.closest('a[href^="#"]')) ferme(false);
+  });
+  // si on repasse en grand écran, le tiroir n'a plus lieu d'être
+  window.addEventListener("resize", function(){
+    if (!mobile() && tiroir.classList.contains("on")) ferme(false);
+  });
+
+  /* ---- les formats rappelés dans le tiroir ---- */
+  if (window.REFS && window.LOTS && window.PRIX) {
+    var f = document.getElementById("tiroirFormats");
+    f.innerHTML = REFS.map(function(k){
+      return '<div><span>' + LOTS[k].nom + '</span><b>'
+           + (PRIX[k] > 0 ? euro.format(PRIX[k]) : "—") + '</b></div>';
+    }).join("");
+  }
+
+  /* ---- la barre du bas ---- */
+  var qte   = document.getElementById("barreQte");
+  var somme = document.getElementById("barreSomme");
+
+  function majBarre(){
+    if (typeof articles !== "function") return;
+    if (typeof BOUTIQUE_OUVERTE !== "undefined" && !BOUTIQUE_OUVERTE) {
+      qte.textContent = "Ouverture prochaine";
+      somme.textContent = "à partir de " + (PRIX.unite > 0 ? euro.format(PRIX.unite) : "—");
+      return;
+    }
+    var n = articles();
+    if (n === 0) {
+      qte.textContent = "Panier vide";
+      somme.textContent = "à partir de " + (PRIX.unite > 0 ? euro.format(PRIX.unite) : "—");
+    } else {
+      qte.textContent = n + (n > 1 ? " articles" : " article");
+      somme.textContent = euro.format(total());
+    }
+  }
+
+  // se greffer sur le rendu du panier sans toucher à son code
+  if (typeof rendre === "function") {
+    var rendreInitial = rendre;
+    window.rendre = function(){ rendreInitial.apply(null, arguments); majBarre(); };
+  }
+  majBarre();
+
+  /* ---- quand la barre se montre ----
+     après le hero, et jamais par-dessus la section commande.
+     Piloté à la position de défilement : pas de dépendance au
+     rythme de peinture, et le comportement est vérifiable.       */
+  var hero = document.querySelector(".hero");
+  var cmd  = document.getElementById("commander");
+  var enAttente = false;
+
+  function arbitre(){
+    enAttente = false;
+    if (!mobile()) { barre.classList.remove("on"); return; }
+    var y = window.scrollY, vue = window.innerHeight;
+    var passeLeHero = hero ? (y > hero.offsetTop + hero.offsetHeight - 160) : true;
+    var surLaCommande = false;
+    if (cmd) {
+      var haut = cmd.offsetTop, bas = haut + cmd.offsetHeight;
+      surLaCommande = (haut < y + vue) && (bas > y);
+    }
+    barre.classList.toggle("on", passeLeHero && !surLaCommande);
+  }
+  function planifie(){
+    if (enAttente) return;
+    enAttente = true;
+    var fait = false;
+    var vas = function(){ if (fait) return; fait = true; arbitre(); };
+    requestAnimationFrame(vas);   // au rythme de l'affichage
+    setTimeout(vas, 120);         // filet : rAF est bridé hors du premier plan
+  }
+  window.addEventListener("scroll", planifie, { passive: true });
+  window.addEventListener("resize", planifie);
+  arbitre();
+})();
+</script>
+</body>
+</html>
